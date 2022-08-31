@@ -1,4 +1,6 @@
-/*Write a program where 2 threads communicate using a single global variable "balance" and initialized to 1000..Thread 1 deposits amount = 50 for 50 times and prints the balance amount and thread 2 withdrawals amount=20 for 20 times and prints the final balance. Execution of thread 1 and thread 2 should not interleave.*/
+/* Write a program where 2 threads communicate using a single global variable "balance" and initialized to 1000.
+ * Thread 1 deposits amount = 50 for 50 times and prints the balance amount and thread 2 withdrawals amount=20 for 20 times and prints the final balance.
+ * Execution of thread 1 and thread 2 should not interleave.*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -41,29 +43,29 @@ int main()
     if(ret != 0)
     {
         printf("Thread Create Error.\n");
-       return 0;
+        return 0;
     }
 
     ret = pthread_create(&t2, NULL, withdraw, NULL);
     if(ret != 0)
     {
         printf("Thread Create Error.\n");
-       return 0;
+        return 0;
     }
 
     ret = pthread_join(t1, NULL);
     if(ret != 0)
     {
         printf("Thread Join Error.\n");
-       return 0;
+        return 0;
     }
 
     ret = pthread_join(t2, NULL);
     if(ret != 0)
     {
         printf("Thread Join Error.\n");
-       return 0;
+        return 0;
     }
     printf("Balance is : %d\n", balance);
-	return 0;
+    return 0;
 }

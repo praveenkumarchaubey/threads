@@ -7,7 +7,7 @@
 
 int status = 10;
 
-void * func(void *arg)
+void *func(void *arg)
 {
     int n;
     n = *((int *)arg);
@@ -34,7 +34,7 @@ int main()
         }
     }
 
-	//free the resources print the exit status
+    //free the resources print the exit status
     for(j=0; j<MAX; j++)
     {
         ret = pthread_join(tid[j], (void**)&status); 

@@ -15,7 +15,7 @@ typedef struct Employee
 }employee;
 
 int status = 10;
-void * func(void * arg)
+void *func(void * arg)
 {
     employee *emp;
     emp = (employee *)arg;
@@ -51,7 +51,7 @@ int main()
         printf("Enter empID: \t");
         scanf("%d", &(emp[i]->empID));
 
-	while('\n'!=getchar());
+        while('\n'!=getchar());
         printf("Enter Branch: \t");
         memset(branch, 0, 29);
         fgets(branch, 29, stdin);
@@ -60,12 +60,12 @@ int main()
 
     for(i=0; i<2; i++)
     {
-       ret = pthread_create(&t[i], NULL, func, (void *)emp[i]);
-       if(ret != 0)
-       {
-           printf("Thread creation failed");
-           return 0;
-       }
+        ret = pthread_create(&t[i], NULL, func, (void *)emp[i]);
+        if(ret != 0)
+        {
+            printf("Thread creation failed");
+            return 0;
+        }
     }
 
     for(i=0; i<2; i++)
@@ -77,6 +77,6 @@ int main()
             return 0;
         }
     }
-	return 0;
+    return 0;
 }
 

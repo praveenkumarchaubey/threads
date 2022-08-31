@@ -1,7 +1,9 @@
-/*Write a program where 2 threads operate on a global variable "account" initialized to 1000.
-There is a deposit function which deposits a given amount in this "account":  int deposit(int amount)
-There is a withdrawal function which withdraws a given amount from the "account": int withdrawal(int amount)
-However there is a condition: withdrawal function should block the calling thread when the amount in the "account" is less than 1000, i.e. you can't withdraw if the "account" value is less than 1000. Threads calling the deposit function should indicate to the withdrawing threads when the amount is greater than 1000.*/
+/* Write a program where 2 threads operate on a global variable "account" initialized to 1000.
+ * There is a deposit function which deposits a given amount in this "account":  int deposit(int amount).
+ * There is a withdrawal function which withdraws a given amount from the "account": int withdrawal(int amount)
+ * However there is a condition: withdrawal function should block the calling thread when the amount in the "account" is less than 1000,
+ * i.e. you can't withdraw if the "account" value is less than 1000.
+ * Threads calling the deposit function should indicate to the withdrawing threads when the amount is greater than 1000.*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -86,7 +88,7 @@ int main()
         pthread_join(t2, NULL);
         printf("Do you want to continue the transaction? (0/1)\n");
         scanf("%d", &check);
-   }while(check);
-   return 0;
+    }while(check);
+    return 0;
 }
 
